@@ -32,3 +32,6 @@ Este repositorio contiene una plantilla en **LaTeX** diseñada específicamente 
 ### Entrega
 
 La entrega se realiza vía **aula.usm.cl** en formato `.zip`.
+
+Link del [repo](https://github.com/PipazoLoko/Tarea-1-Algoco)
+
