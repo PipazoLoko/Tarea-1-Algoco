@@ -29,3 +29,9 @@ cd sorting/
 cd matrix_multiplication/
 ```
 Una vez ahí ejecutar `make all`
+
+
+
+## Repositorio
+
+Link del [repo](https://github.com/PipazoLoko/Tarea-1-Algoco)
