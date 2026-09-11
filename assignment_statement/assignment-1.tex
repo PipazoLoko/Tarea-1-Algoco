@@ -1,0 +1,191 @@
+% Reconstrucción del enunciado de la Tarea 1 (a partir de assignment-1.pdf)
+% Semestre actualizado a 2026-2 y fecha de compilación (\today).
+\documentclass[11pt,spanish]{article}
+
+\input{preamble.tex}
+
+% --- Datos del enunciado ---
+\newcommand{\tnum}{1}
+\newcommand{\sem}{2026-2}
+\newcommand{\campus}{Casa Central \\ Valparaíso}
+\newcommand{\deadline}{8 de Septiembre de 2026}
+
+% --- Encabezado y pie de página ---
+\headheight=14pt
+\linespread{1.3}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{INF-221 TAREA \tnum}
+\rhead{\sem}
+\fancyfoot[L]{Campus \campus}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{ALGORITMOS Y COMPLEJIDAD \sem}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\title{%
+  \huge
+  \textbf{ENUNCIADO TAREA \tnum~ \\ ALGORITMOS Y COMPLEJIDAD} \\[1ex]
+  \emph{\textquote{Más allá de la notación asintótica: Análisis experimental de algoritmos de ordenamiento y multiplicación de matrices.}}
+}
+
+\author{%
+  Fecha límite de entrega: \deadline \\[1ex]
+  Equipo ALGORITMOS Y COMPLEJIDAD \sem
+}
+
+\date{%
+  \small
+  \today \\
+  \currenttime \\[1ex]
+  Versión 0.0
+}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\vspace{-1.0\baselineskip}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Objetivos}
+El objetivo de esta tarea es introducirnos en el Análisis experimental de Algoritmos. Para ello, se propone realizar un estudio experimental de 4 algoritmos de ordenamiento y 2 de multiplicación de matrices.
+
+Para cada uno de los dos problemas, el de ordenar un arreglo unidimensional de números enteros, y el de multiplicar dos matrices cuadradas, existen múltiples algoritmos que los resuelven, y la mayoría, si no todos, tienen implementaciones de fácil acceso (ya se encuentran en bibliotecas de lenguajes de programación, o son fáciles de encontrar en Internet). Sus complejidades teóricas son conocidas, ya que estás son una característica fundamental a la hora de diseñar algoritmos y, en la mayoría de los casos, la motivación para diseñarlos.
+
+El desafío en esta tarea no está en diseñar los algoritmos (los encuentra fácilmente), ni tampoco en calcular o demostrar su complejidad teórica: el desafío está en \textbf{estudiar su comportamiento en la práctica} y relacionar este comportamiento con la complejidad teórica.
+
+\section{Especificaciones}
+En esta sección se describen los pasos a seguir para completar la tarea, la cual consiste en desarrollar código en C++ \hyperref[subsec:implementaciones]{«Implementaciones»} y en realizar un mini-informe \hyperref[subsec:mini-informe]{«Mini-informe»}. Se espera que cada uno de los pasos se realice de manera ordenada y siguiendo las instrucciones dadas.
+
+\subsection{Implementaciones}\label{subsec:implementaciones}
+
+\begin{mdframed}[linecolor=blue!60!black, backgroundcolor=blue!5,
+                 linewidth=1pt, roundcorner=5pt, innertopmargin=8pt,
+                 innerbottommargin=8pt]
+\textbf{Nota: }Abra este documento en algún lector de pdf que permita hipervínculos, ya que en este documento el texto en color azul suele indicar un hipervínculo.
+\end{mdframed}
+
+
+\begin{enumerate}[(1)]
+  \item En caso de dudas, enviar preguntas \textbf{al foro de la Tarea 1}. En caso de cualquier de modificaciones, todas se informarán por aula.
+  \item Todo lo necesario para realizar la tarea se encuentra en el archivo \verb|.zip| proporcionado a través de aula.usm.cl.
+\end{enumerate}
+
+\begin{mdframed}[linecolor=blue!60!black, backgroundcolor=blue!5,
+                 linewidth=1pt, roundcorner=5pt, innertopmargin=8pt,
+                 innerbottommargin=8pt]
+                 \textbf{Nota:} La estructura de archivos y el template del proyecto se encuentran disponibles en el material entregado.
+\end{mdframed}
+
+
+\newpage
+
+\begin{enumerate}[(1)]
+  \item \textbf{Ordenamiento y Multiplicación.}
+
+  \textbf{Ordenamiento.} Implementar en C++ los algoritmos de ordenamiento: \textsc{merge sort}, \textsc{quick sort}, \textsc{patience sort} y el algoritmo \textsc{sort} de la librería estándar de C++. Use la siguiente estructura de archivos:
+  \begin{itemize}
+    \item \verb|code/sorting/algorithms/mergesort.cpp|
+    \item \verb|code/sorting/algorithms/quicksort.cpp|
+    \item \verb|code/sorting/algorithms/patiencesort.cpp|
+    \item \verb|code/sorting/algorithms/sort.cpp|
+  \end{itemize}
+  El algoritmo \textsc{sort} ya se encuentra implementado en el material entregado con el fin de que sea incluido en sus mediciones del punto (2) de la subsección \hyperref[subsec:implementaciones]{«Implementaciones»}.
+
+  \textbf{Multiplicación.} Se deben implementar en C++ los algoritmos de multiplicación \textsc{naive} y \textsc{strassen}. Use la siguiente estructura de archivos.
+  \begin{itemize}
+    \item \verb|code/matrix_multiplication/algorithms/naive.cpp|
+    \item \verb|code/matrix_multiplication/algorithms/strassen.cpp|
+  \end{itemize}
+
+  \item \textbf{Mediciones de tiempo y memoria.} Implementar el programa que realizará las mediciones de tiempo y memoria en C++ (programas principales) y su respectivo makefile, que ejecutará los algoritmos y generará los archivos de salida en cada uno de los directorios measurements sorting y measurements matrix multiplication con los resultados de cada uno de los algoritmos.
+  \begin{itemize}
+    \item \verb|code/sorting/sorting.cpp|
+    \item \verb|code/matrix_multiplication/matrix_multiplication.cpp|
+  \end{itemize}
+
+  \item \textbf{Generación de gráficos.} Implementar el programa que generará los gráficos en \textsc{python} y que se encargará de leer los archivos generados por los programas principales guardados en measurements sorting y measurements matrix multiplication, para luego graficar los resultados obtenidos y guardarlos en formato PNG en plots sorting y plots matrix multiplication.
+  \begin{itemize}
+    \item \verb|code/sorting/scripts/plot_generator.py|
+    \item \verb|code/matrix_multiplication/scripts/plot_generator.py|
+  \end{itemize}
+
+  \item \textbf{Documentación.} Documentar cada uno de los pasos anteriores
+  \begin{itemize}
+    \item Completar el archivo README.md del directorio code
+    \item Documentar en cada uno de sus programas, al inicio de cada archivo, fuentes de información, referencias y/o bibliografía utilizada para la implementación de cada uno de los algoritmos.
+  \end{itemize}
+\end{enumerate}
+
+\newpage
+
+\subsection{Mini-informe}\label{subsec:mini-informe}
+Generar un mini-informe en \LaTeX{} que contenga una introducción breve, los resultados obtenidos (tablas y gráficos) con una discusión sobre ellos, y una conclusión breve. En el material entregado podrá encontrar el Template en el directorio report que deben utilizar:
+
+\begin{center}
+  \verb|Template disponible en: report/ dentro del material entregado|
+\end{center}
+
+Las indicaciones se encuentran en el archivo README.md y en la plantilla de \LaTeX{}.
+
+\section{Condiciones de entrega}
+\begin{enumerate}[(1)]
+  \item La tarea es individual, sin excepciones.
+  \item La entrega debe realizarse vía aula.usm.cl, subiendo un archivo \verb|.zip| que contenga todo el contenido de su proyecto (código, informe, datos, gráficos, etc.).
+  \item Si se utiliza algún código, idea, o contenido extraído de otra fuente, este debe ser citado en el lugar exacto donde se utilice.
+  \item Asegúrese que todas sus entregas tengan sus datos completos: número de la tarea, ramo, semestre, nombre y rol. Puede incluirlas como comentarios en sus fuentes \LaTeX{} (en \TeX{} comentarios son desde \% hasta el final de la línea) o en posibles programas. Anótese como autor de los textos.
+  \item Si usa material adicional al discutido en clases, detállelo. Agregue información suficiente para ubicar ese material (en caso de no tratarse de discusiones con compañeros de curso u otras personas).
+  \item La fecha límite de entrega es el día 9 de Abril de 2026. \\ \textbf{NO SE ACEPTARÁN TAREAS FUERA DE PLAZO.}
+  \item Nos reservamos el derecho de llamar a interrogación sobre algunas de las tareas entregadas. En tal caso, la nota de la tarea será la obtenida en la interrogación. \\ \textbf{NO PRESENTARSE A UN LLAMADO A INTERROGACIÓN SIN JUSTIFICACIÓN PREVIA SIGNIFICA AUTOMÁTICAMENTE NOTA 0.}
+\end{enumerate}
+
+\newpage
+
+\appendix
+
+\section{Casos de prueba}
+
+\subsection{Ordenamiento de un arreglo unidimensional de números enteros}
+
+\textbf{Entrada:} Leer un arreglo unidimensional $A$ desde el archivo \verb|{n}_{t}_{d}_{m}.txt|.
+
+\begin{itemize}
+  \item $n$ hace referencia a la cantidad de elementos (o largo del arreglo) y pertenece al conjunto $N = \{10^1, 10^3, 10^5, 10^7\}$.
+  \item $t$ hace referencia al tipo de matriz, y pertenece al conjunto $T = \{\text{ascendente}, \text{descendente}, \text{aleatorio}\}$.
+  \item $d$ hace referencia al conjunto dominio de cada elemento del arreglo. $d = \{D1, D7\}$, donde $D7$ implica que el dominio es $\{0,1,2,3,4,5,6,7,8,9\}$ y $D7$ que el dominio es $\{0,1,2,3,\dots,10^7\}$.
+  \item $m$ hace referencia a la muestra aleatoria (o caso de prueba) y pertenece al conjunto $M = \{a, b, c\}$.
+\end{itemize}
+
+\textbf{Salida:} Escribir la matriz resultante $M_1 \times M_2$ en el archivo \verb|{n}_{t}_{d}_{m}_out.txt|.
+
+Los programas que generan estos arreglos se encuentran en
+
+\begin{center}
+  \verb|code/sorting/scripts/array_generator.py|
+\end{center}
+
+\subsection{Multiplicación de matrices cuadradas de números eneteros}
+
+\textbf{Entrada:} Leer dos matrices cuadradas de entrada $M_1$ y $M_2$ desde los archivos \verb|{n}_{t}_{d}_{m}_1.txt| y \verb|{n}_{t}_{d}_{m}_2.txt|, respectivamente.
+
+\begin{itemize}
+  \item $n$ hace referencia a la dimensión de la matriz ($n$ filas y $n$ columnas) y pertenece al conjunto $N = \{2^4, 2^6, 2^8, 2^{10}\}$.
+  \item $t$ hace referencia al tipo de matriz, y pertenece al conjunto $T = \{\text{dispersa}, \text{diagonal}, \text{densa}\}$.
+  \item $d$ hace referencia al dominio de cada coeficiente de la matriz $d = \{D0, D10\}$, donde $D0$ implica que el dominio es $\{0,1\}$ y $D10$ que el dominio es $\{0,1,2,3,4,5,6,7,8,9\}$.
+  \item $m$ hace referencia a la muestra aleatoria (o caso de prueba) y pertenece al conjunto $M = \{a, b, c\}$.
+\end{itemize}
+
+\textbf{Salida:} Escribir la matriz resultante $M_1 \times M_2$ en el archivo \verb|{n}_{t}_{d}_{m}_out.txt|.
+
+Los programas que generan estas matrices se encuentran en
+
+\begin{center}
+  \verb|code/matrix_multiplication/scripts/matrix_generator.py|
+\end{center}
+
+\end{document}

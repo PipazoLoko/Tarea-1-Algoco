@@ -1,0 +1,60 @@
+\documentclass[11pt,spanish]{article} % Tipo y tamaño de letra del documento.
+
+\input{preamble.tex}
+
+\input{author.tex}
+
+\headheight=14pt
+\linespread{1.3}
+\author{\namestudent}
+\pagestyle{fancy}
+\fancyhf{}%
+\fancyfoot[R]{ \namestudent \\ \rolusm}
+\fancyfoot[L]{Campus \campus}
+\fancyfoot[C]{\thepage}
+\rhead{\sem}
+\lhead{INF-221}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\newbool{programs}
+\boolfalse{programs}
+\chead{REPORTE TAREA \tnum~}
+
+
+
+\title{
+  \huge
+  \textbf{REPORTE TAREA \tnum~ \\ ALGORITMOS Y COMPLEJIDAD} \\[1ex]
+  \emph{\textquote{Más allá de la notación asintótica: Análisis experimental de algoritmos de ordenamiento y multiplicación de matrices.}}
+  }
+
+
+\date{
+  \small
+  \today\\
+  \currenttime
+}
+
+
+
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\vspace{-1.0\baselineskip}
+
+\section{Introducción}
+\input{sections/introduccion}
+
+\section{Entorno experimental}
+\input{sections/experiment_intro}
+
+\section{Resultados y Análisis}
+\input{sections/experiment_results}
+
+\section{Conclusiones}
+\input{sections/conclusions}
+
+\printbibliography
+
+\end{document}

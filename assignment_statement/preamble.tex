@@ -1,0 +1,87 @@
+
+\usepackage[utf8]{inputenc}
+\usepackage{subfiles}
+\usepackage{biblatex}
+\addbibresource{references.bib}
+\usepackage{multicol}
+\usepackage{amsfonts}
+\usepackage{blindtext}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{centernot}
+\usepackage[shortlabels]{enumitem}
+\usepackage{subfig}
+\usepackage{datetime}
+\usepackage{listingsutf8}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage[vlined,ruled,linesnumbered]{algorithm2e}
+\usepackage{listings}
+\usepackage{float}
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage{fourier} %font
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
+\usepackage{pgfplots}
+\usepackage{fancyhdr}
+\usepackage{mdframed}
+\usepackage{tikzducks}
+\usepackage[nameinlink]{cleveref}
+\usepackage{epigraph} 
+
+\pgfplotsset{compat=1.18}
+
+\usetikzlibrary{shapes.arrows, shapes.geometric, arrows.meta,angles,quotes,positioning,arrows,fit,quotes,calc}
+\tikzset{>=latex} 
+
+\setlength\algomargin{1em} 
+\SetFuncSty{sc} 
+\SetCommentSty{em} 
+
+
+\Crefname{figure}{Fig.}{Figs.}
+\newcommand\crefrangeconjunction{--}
+\Crefname{table}{Tabla}{Tablas}
+\Crefname{subsubsection}{Subsubsec.}{Subsubsections}
+\Crefname{subsection}{Subsec.}{Subsections}
+\Crefname{section}{Sec.}{Sections}
+\Crefname{equation}{eq.}{eqs.}
+\crefname{thm}{Theorem}{theorems}
+\Crefname{thm}{Theorem}{Theorems} 
+
+\definecolor{algoco}{rgb}{0,0.0,1}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=algoco,
+  citecolor=blue,
+  urlcolor=blue,
+}
+
+\lstset{
+extendedchars=true
+inputencoding=utf8/latin1,
+basicstyle=\footnotesize\sffamily\color{black},
+commentstyle=\slshape \color{gray},
+numbers=left,
+numbersep=10pt,
+numberstyle=\tiny\color{red!80!black},
+keywordstyle=\color{red!80!magenta},
+showspaces=false,
+showstringspaces=false,
+stringstyle=\color{cyan!80!black},
+tabsize=2,
+literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1,
+frame = single, 
+numbers = none,
+float, floatplacement = ht, captionpos = b,
+xleftmargin = 2em, xrightmargin = 2em, 
+}
+
+\newcommand{\ub}[1]{\underbrace{#1}}
+\newcommand\tcm{\textcolor{blue}}
+\newcommand\tca{\textcolor{algoco}}
+
+\setlength\epigraphwidth{.7\textwidth}
